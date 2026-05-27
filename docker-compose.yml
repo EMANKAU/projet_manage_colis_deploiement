@@ -14,7 +14,7 @@ services:
       - db_EJ 
     networks:
       - django_network_EJ
-  db:
+  db_EJ:
     image: postgres:16
     container_name: postgres_db_EJ
     environment:
