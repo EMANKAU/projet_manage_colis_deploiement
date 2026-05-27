@@ -1,8 +1,8 @@
 version: '3.9' 
 services:
-  web_EJ: 
+  web_ej: 
     build: . 
-    container_name: django_app_EJ
+    container_name: django_app_ej
     command: python manage.py runserver 0.0.0.0:8000 
     volumes: 
       - ./:/app 
@@ -11,23 +11,23 @@ services:
     env_file:     
       - .env 
     depends_on:
-      - db_EJ 
+      - db_ej
     networks:
-      - django_network_EJ
-  db_EJ:
+      - django_network_ej
+  db_ej:
     image: postgres:16
-    container_name: postgres_db_EJ
+    container_name: postgres_db_ej
     environment:
       POSTGRES_DB: django_db
       POSTGRES_USER: django_user
       POSTGRES_PASSWORD: django_password
     volumes:
-        - postgres_data_EJ:/var/lib/postgresql/data
+        - postgres_data_ej:/var/lib/postgresql/data
     ports: 
       - "5434:5432" 
     networks:
-      - django_network_EJ
+      - django_network_ej
 volumes:
-  postgres_data_EJ:
+  postgres_data_ej:
 networks: 
-  django_network_EJ: 
+  django_network_ej: 
